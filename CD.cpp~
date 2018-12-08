@@ -1,0 +1,38 @@
+#include <bits/stdc++.h>
+using namespace std;
+vector<int > ans;
+int check(int n,int arr[],int s){
+  if(s==0)
+    return n;
+
+  if(arr[s-1]>n)
+    return check(n, arr, s-1);
+  int m1=check(n,arr,s-1);
+  int m2=check(n-arr[s-1],arr,s-1);
+  if(m1>m2){
+    ans.push_back(arr[s-1]);
+    return m2;
+  }
+  return m1;
+}
+int main()
+{
+  int n,s;
+  while(cin>>n>>s){
+    int arr[s];
+    
+    for(int i=0;i<s;i++)
+      cin>>arr[i];
+
+
+    
+    
+    cout<<check(n,arr,s)<<endl;
+    for(int i=0;i<ans.size();i++)
+      cout<<ans[i]<<" ";
+    cout<<endl;
+
+    ans.clear();
+  }
+  return 0;
+}
