@@ -2,7 +2,6 @@
 using namespace std;
 int t,l,p,found=false;
 void isPossible(int i,int cur,int arr[]){
-  //cout<<"current is:"<<cur<<endl;
   if(i==p){
     if(cur==l){
       found=true;
