@@ -1,7 +1,8 @@
-/* 481 - What Goes Up  */
+/*  231 - Testing the CATCHER */
+
 #include <bits/stdc++.h>
 using namespace std;
-
+int c=1;
 int main(){
   ifstream in;
   ofstream out;
@@ -15,7 +16,8 @@ int main(){
       break;
     }
     input.push_back(value);
-  }
+    if(value!=-1)
+      continue;
   
   vector<int> parent;
   parent.resize(input.size());
@@ -44,16 +46,12 @@ int main(){
       active_sequence_indices[index] = i;
     }
   }
-  out << active_sequence_ends.size() << endl;
-  out << "-" << endl;
-  int index = active_sequence_indices[active_sequence_indices.size() - 1];
-  list<int> result;
-  while (index != -1){
-    result.push_front(input[index]);
-    index = parent[index];
-  }
-  for (list<int>::iterator i = result.begin(); i != result.end(); i++){
-    out << *i << endl;
+  out<<"Test #"<<c++<<":"<<endl;
+  out <<"  maximum possible interceptions: "<<active_sequence_ends.size() << endl;
+  out<<endl;
+  input.clear();
+  active_sequence_ends.clear();
+  active_sequence_indices.clear();
   }
   return 0;
 }
