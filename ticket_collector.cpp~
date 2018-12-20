@@ -1,0 +1,10 @@
+/* 11831 - Sticker Collector Robot */
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int main(){
+  int n,m;
+
+}
+ 

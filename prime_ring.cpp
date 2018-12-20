@@ -5,9 +5,9 @@ int n,ans[100],c=1;
   ofstream out;
 bool primes[33]={0,0,1,1,0,1,0,1,0,0,0,1,0,1,0,0,0,1,0,1,0,0,0,1,0,0,0,0,0,1,0,1,0};  
 bool visited[17]={0};
-void dfs(int no,int val){
-  if(val==n){
-    if(n==1 || primes[ans[1]+ans[val]]){
+void dfs(int no,int index){
+  if(index==n){
+    if(n==1 || primes[ans[1]+ans[index]]){
       for(int i=1;i<=n;i++){
 	if(i!=n)
 	  cout<<ans[i]<<" ";
@@ -21,8 +21,8 @@ void dfs(int no,int val){
   visited[no]=1;
   for(int i=2;i<=n;i++){
     if(!visited[i] && primes[i+no]){
-      ans[val+1]=i;
-      dfs(i,val+1);
+      ans[index+1]=i;
+      dfs(i,index+1);
     }
   }
   visited[no]=0;
